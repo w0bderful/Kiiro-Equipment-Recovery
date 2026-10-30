@@ -1,0 +1,622 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Kiiro Equipment Expansion</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[@Name="Kiiro_ShellBaseV"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef Name="Kiiro_ShellBaseV" ParentName="Kiiro_ShellBase" Abstract="True">
+                <recipeMaker>
+                  <researchPrerequisite>Kiiro_Apparel_V</researchPrerequisite>
+                  <recipeUsers Inherit="false">
+                    <li>Kiiro_MachiningBench</li>
+                  </recipeUsers>
+                </recipeMaker>
+                <apparel>
+                  <tags>
+                    <li>Kiiro_Shell</li>
+                  </tags>
+                </apparel>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[@Name="Kiiro_ShellBaseVI"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef Name="Kiiro_ShellBaseVI" ParentName="Kiiro_ShellBase" Abstract="True">
+                <recipeMaker>
+                  <researchPrerequisite>Kiiro_Apparel_VI</researchPrerequisite>
+                  <recipeUsers Inherit="false">
+                    <li>Kiiro_MachiningBench</li>
+                  </recipeUsers>
+                </recipeMaker>
+                <apparel>
+                  <tags>
+                    <li>Kiiro_Shell</li>
+                  </tags>
+                </apparel>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Kiiro_ExoSuit"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="Kiiro_ShellBaseV">
+                <defName>Kiiro_ExoSuit</defName>
+                <label>kiiro ranger exoskeleton</label>
+                <description>Equipped with a jet propulsion system, the powered exoskeleton provides partial protection while greatly improving maneuverability.\n\nExoskeleton do not have a self circulating system. If the wearer wants to move in a special environment, remember to bring an oxygen tank.</description>
+                <costList>
+                  <Plasteel>25</Plasteel>
+                  <DevilstrandCloth>35</DevilstrandCloth>
+                  <ComponentIndustrial>8</ComponentIndustrial>
+                  <ComponentSpacer>1</ComponentSpacer>
+                </costList>
+                <costStuffCount>120</costStuffCount>
+                <stuffCategories>
+                  <li>Metallic</li>
+                </stuffCategories>
+                <graphicData>
+                  <texPath>Kiiro/Apparel/OnSkin/ExoSuit/ExoSuit</texPath>
+                  <shaderType>CutoutComplex</shaderType>
+                </graphicData>
+                <statBases>
+                  <MaxHitPoints>1500</MaxHitPoints>
+                  <WorkToMake>54000</WorkToMake>
+                  <Mass>5.2</Mass>
+                  <Flammability>0</Flammability>
+                  <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+                  <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+                  <ArmorRating_Heat>0.55</ArmorRating_Heat>
+                  <StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+                  <StuffEffectMultiplierInsulation_Cold>0.3</StuffEffectMultiplierInsulation_Cold>
+                  <StuffEffectMultiplierInsulation_Heat>0.3</StuffEffectMultiplierInsulation_Heat>
+                  <Insulation_Cold>26</Insulation_Cold>
+                  <Insulation_Heat>12</Insulation_Heat>
+                  <JumpRange>12.9</JumpRange>
+                </statBases>
+                <apparel>
+                  <useWornGraphicMask>true</useWornGraphicMask>
+                  <developmentalStageFilter>Adult</developmentalStageFilter>
+                  <layers>
+                    <li>Shell</li>
+                  </layers>
+                  <bodyPartGroups>
+                    <li>Torso</li>
+                    <li>Legs</li>
+                    <li>Arms</li>
+                    <li>Neck</li>
+                    <li>Shoulders</li>
+                    <li>Feet</li>
+                    <li>Hands</li>
+                  </bodyPartGroups>
+                  <wornGraphicPath>Kiiro/Apparel/OnSkin/ExoSuit/ExoSuit</wornGraphicPath>
+                </apparel>
+                <equippedStatOffsets>
+                  <MentalBreakThreshold>-0.15</MentalBreakThreshold>
+                  <PainShockThreshold>0.2</PainShockThreshold>
+                  <MeleeHitChance>15</MeleeHitChance>
+                  <MeleeDodgeChance>10</MeleeDodgeChance>
+                  <RangedCooldownFactor>-0.25</RangedCooldownFactor>
+                  <IncomingDamageFactor>-0.05</IncomingDamageFactor>
+                  <Ancot_RangeDodgeChance>0.15</Ancot_RangeDodgeChance>
+                  <MoveSpeed>0.6</MoveSpeed>
+                  <CarryingCapacity>15</CarryingCapacity>
+                  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.45</VacuumResistance>
+                </equippedStatOffsets>
+                <tickerType>Normal</tickerType>
+                <comps>
+                  <li Class="AncotLibrary.CompProperties_AvoidAllyDamage" />
+                  <li Class="CompProperties_CauseHediff_Apparel">
+                    <hediff>Kiiro_FireRetardant</hediff>
+                    <part>Torso</part>
+                  </li>
+                </comps>
+                <comps>
+                  <li Class="CompProperties_ApparelReloadable">
+                    <maxCharges>5</maxCharges>
+                    <ammoDef>Chemfuel</ammoDef>
+                    <ammoCountPerCharge>5</ammoCountPerCharge>
+                    <baseReloadTicks>60</baseReloadTicks>
+                    <soundReload>Standard_Reload</soundReload>
+                    <hotKey>Misc4</hotKey>
+                    <chargeNoun>jump</chargeNoun>
+                    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+                  </li>
+                </comps>
+                <verbs>
+                  <li>
+                    <verbClass>Verb_Jump</verbClass>
+                    <label>jump</label>
+                    <violent>false</violent>
+                    <hasStandardCommand>true</hasStandardCommand>
+                    <onlyManualCast>True</onlyManualCast>
+                    <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                    <warmupTime>0.3</warmupTime>
+                    <warmupEffecter>JumpWarmupEffect</warmupEffecter>
+                    <requireLineOfSight>true</requireLineOfSight>
+                    <flightEffecterDef>JumpFlightEffect</flightEffecterDef>
+                    <soundLanding>JumpPackLand</soundLanding>
+                    <targetParams>
+                      <canTargetLocations>true</canTargetLocations>
+                      <canTargetPawns>false</canTargetPawns>
+                      <canTargetBuildings>false</canTargetBuildings>
+                    </targetParams>
+                  </li>
+                </verbs>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Kiiro_ShadowExoSuit"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="Kiiro_ShellBaseV">
+                <defName>Kiiro_ShadowExoSuit</defName>
+                <label>kiiro shadow strike exoskeleton</label>
+                <description>The powered exoskeleton with a built-in smoke generator has weaker protection compared to the ranger exoskeleton, but it is more agile and allows kiiro to hide themselves.\n\nExoskeleton do not have a self circulating system. If the wearer wants to move in a special environment, remember to bring an oxygen tank.</description>
+                <costList>
+                  <Plasteel>25</Plasteel>
+                  <DevilstrandCloth>55</DevilstrandCloth>
+                  <ComponentIndustrial>8</ComponentIndustrial>
+                  <ComponentSpacer>1</ComponentSpacer>
+                </costList>
+                <costStuffCount>100</costStuffCount>
+                <stuffCategories>
+                  <li>Metallic</li>
+                </stuffCategories>
+                <graphicData>
+                  <texPath>Kiiro/Apparel/OnSkin/ShadowExoSuit/ShadowExoSuit</texPath>
+                  <shaderType>CutoutComplex</shaderType>
+                </graphicData>
+                <statBases>
+                  <MaxHitPoints>1500</MaxHitPoints>
+                  <WorkToMake>60000</WorkToMake>
+                  <Mass>6</Mass>
+                  <Flammability>0</Flammability>
+                  <ArmorRating_Sharp>0.55</ArmorRating_Sharp>
+                  <ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+                  <ArmorRating_Heat>0.5</ArmorRating_Heat>
+                  <StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+                  <StuffEffectMultiplierInsulation_Cold>0.3</StuffEffectMultiplierInsulation_Cold>
+                  <StuffEffectMultiplierInsulation_Heat>0.3</StuffEffectMultiplierInsulation_Heat>
+                  <Insulation_Cold>22</Insulation_Cold>
+                  <Insulation_Heat>8</Insulation_Heat>
+                  <PackRadius>2.5</PackRadius>
+                </statBases>
+                <apparel>
+                  <useWornGraphicMask>true</useWornGraphicMask>
+                  <developmentalStageFilter>Adult</developmentalStageFilter>
+                  <layers>
+                    <li>Shell</li>
+                  </layers>
+                  <bodyPartGroups>
+                    <li>Torso</li>
+                    <li>Legs</li>
+                    <li>Arms</li>
+                    <li>Neck</li>
+                    <li>Shoulders</li>
+                    <li>Feet</li>
+                    <li>Hands</li>
+                  </bodyPartGroups>
+                  <wornGraphicPath>Kiiro/Apparel/OnSkin/ShadowExoSuit/ShadowExoSuit</wornGraphicPath>
+                </apparel>
+                <equippedStatOffsets>
+                  <MentalBreakThreshold>-0.05</MentalBreakThreshold>
+                  <HuntingStealth>0.5</HuntingStealth>
+                  <PainShockThreshold>0.20</PainShockThreshold>
+                  <MeleeHitChance>8</MeleeHitChance>
+                  <MeleeDodgeChance>5</MeleeDodgeChance>
+                  <RangedCooldownFactor>-0.25</RangedCooldownFactor>
+                  <Ancot_RangeDodgeChance>0.05</Ancot_RangeDodgeChance>
+                  <MoveSpeed>0.4</MoveSpeed>
+                  <CarryingCapacity>15</CarryingCapacity>
+                  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.45</VacuumResistance>
+                </equippedStatOffsets>
+                <tickerType>Normal</tickerType>
+                <comps>
+                  <li Class="CompProperties_CauseHediff_Apparel">
+                    <hediff>Kiiro_FireRetardant</hediff>
+                    <part>Torso</part>
+                  </li>
+                </comps>
+                <comps>
+                  <li Class="CompProperties_ApparelReloadable">
+                    <maxCharges>5</maxCharges>
+                    <ammoDef>Chemfuel</ammoDef>
+                    <ammoCountToRefill>8</ammoCountToRefill>
+                    <baseReloadTicks>60</baseReloadTicks>
+                    <soundReload>Standard_Reload</soundReload>
+                    <hotKey>Misc4</hotKey>
+                    <chargeNoun>smoke pop</chargeNoun>
+                    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+                  </li>
+                </comps>
+                <verbs>
+                  <li>
+                    <verbClass>Verb_Smokepop</verbClass>
+                    <label>use</label>
+                    <violent>false</violent>
+                    <hasStandardCommand>true</hasStandardCommand>
+                    <targetable>false</targetable>
+                    <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+                    <onlyManualCast>True</onlyManualCast>
+                  </li>
+                </verbs>
+                <thingClass>Kiiro.Apparel_Stealth</thingClass>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Kiiro_PowerArmor"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="Kiiro_ShellBaseVI">
+                <defName>Kiiro_PowerArmor</defName>
+                <label>kiiro ranger power armor</label>
+                <description>The upgraded version of the ranger exoskeleton adopts a fully enclosed structure, which not only enhances protection, but also allows the wearer to persist in combat in vacuum, underwater, and even toxic gases.</description>
+                <costList>
+                  <Plasteel>50</Plasteel>
+                  <DevilstrandCloth>45</DevilstrandCloth>
+                  <ComponentIndustrial>6</ComponentIndustrial>
+                  <ComponentSpacer>2</ComponentSpacer>
+                </costList>
+                <costStuffCount>175</costStuffCount>
+                <stuffCategories>
+                  <li>Metallic</li>
+                </stuffCategories>
+                <graphicData>
+                  <texPath>Kiiro/Apparel/OnSkin/PowerArmor/PowerArmor</texPath>
+                  <shaderType>CutoutComplex</shaderType>
+                </graphicData>
+                <statBases>
+                  <MaxHitPoints>1500</MaxHitPoints>
+                  <WorkToMake>90000</WorkToMake>
+                  <Mass>10.5</Mass>
+                  <Flammability>0</Flammability>
+                  <ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+                  <ArmorRating_Blunt>0.65</ArmorRating_Blunt>
+                  <ArmorRating_Heat>0.85</ArmorRating_Heat>
+                  <StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+                  <StuffEffectMultiplierInsulation_Cold>0.5</StuffEffectMultiplierInsulation_Cold>
+                  <StuffEffectMultiplierInsulation_Heat>0.5</StuffEffectMultiplierInsulation_Heat>
+                  <Insulation_Cold>40</Insulation_Cold>
+                  <Insulation_Heat>35</Insulation_Heat>
+                  <JumpRange>12.9</JumpRange>
+                </statBases>
+                <apparel>
+                  <useWornGraphicMask>true</useWornGraphicMask>
+                  <developmentalStageFilter>Adult</developmentalStageFilter>
+                  <layers>
+                    <li>Shell</li>
+                  </layers>
+                  <bodyPartGroups>
+                    <li>Torso</li>
+                    <li>Legs</li>
+                    <li>Arms</li>
+                    <li>Neck</li>
+                    <li>Shoulders</li>
+                    <li>Feet</li>
+                    <li>Hands</li>
+                  </bodyPartGroups>
+                  <wornGraphicPath>Kiiro/Apparel/OnSkin/PowerArmor/PowerArmor</wornGraphicPath>
+                </apparel>
+                <equippedStatOffsets>
+                  <MentalBreakThreshold>-0.25</MentalBreakThreshold>
+                  <PainShockThreshold>0.3</PainShockThreshold>
+                  <MeleeHitChance>20</MeleeHitChance>
+                  <MeleeDodgeChance>15</MeleeDodgeChance>
+                  <RangedCooldownFactor>-0.4</RangedCooldownFactor>
+                  <IncomingDamageFactor>-0.15</IncomingDamageFactor>
+                  <Ancot_RangeDodgeChance>0.25</Ancot_RangeDodgeChance>
+                  <CarryingCapacity>30</CarryingCapacity>
+                  <MoveSpeed>0.6</MoveSpeed>
+                  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.75</VacuumResistance>
+                </equippedStatOffsets>
+                <comps>
+                  <li Class="AncotLibrary.CompProperties_AvoidAllyDamage" />
+                  <li Class="CompProperties_CauseHediff_Apparel">
+                    <hediff>Kiiro_FireRetardant</hediff>
+                    <part>Torso</part>
+                  </li>
+                </comps>
+                <comps>
+                  <li Class="CompProperties_ApparelReloadable">
+                    <maxCharges>5</maxCharges>
+                    <ammoDef>Chemfuel</ammoDef>
+                    <ammoCountPerCharge>5</ammoCountPerCharge>
+                    <baseReloadTicks>60</baseReloadTicks>
+                    <soundReload>Standard_Reload</soundReload>
+                    <hotKey>Misc4</hotKey>
+                    <chargeNoun>jump</chargeNoun>
+                    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+                  </li>
+                </comps>
+                <verbs>
+                  <li>
+                    <verbClass>Verb_Jump</verbClass>
+                    <label>jump</label>
+                    <violent>false</violent>
+                    <hasStandardCommand>true</hasStandardCommand>
+                    <onlyManualCast>True</onlyManualCast>
+                    <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                    <warmupTime>0.3</warmupTime>
+                    <warmupEffecter>JumpWarmupEffect</warmupEffecter>
+                    <requireLineOfSight>true</requireLineOfSight>
+                    <flightEffecterDef>JumpFlightEffect</flightEffecterDef>
+                    <soundLanding>JumpPackLand</soundLanding>
+                    <targetParams>
+                      <canTargetLocations>true</canTargetLocations>
+                      <canTargetPawns>false</canTargetPawns>
+                      <canTargetBuildings>false</canTargetBuildings>
+                    </targetParams>
+                  </li>
+                </verbs>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Kiiro_ShadowPowerArmor"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="Kiiro_ShellBaseVI">
+                <defName>Kiiro_ShadowPowerArmor</defName>
+                <label>kiiro shadow strike power armor</label>
+                <description>The upgraded version of the shadow strike exoskeleton adopts a fully enclosed structure, which not only enhances protection, but also allows the wearer to persist in combat in vacuum, underwater, and even toxic gases.</description>
+                <costList>
+                  <Plasteel>50</Plasteel>
+                  <DevilstrandCloth>65</DevilstrandCloth>
+                  <ComponentIndustrial>6</ComponentIndustrial>
+                  <ComponentSpacer>2</ComponentSpacer>
+                </costList>
+                <costStuffCount>170</costStuffCount>
+                <stuffCategories>
+                  <li>Metallic</li>
+                </stuffCategories>
+                <graphicData>
+                  <texPath>Kiiro/Apparel/OnSkin/ShadowPowerArmor/ShadowPowerArmor</texPath>
+                  <shaderType>CutoutComplex</shaderType>
+                </graphicData>
+                <statBases>
+                  <MaxHitPoints>1500</MaxHitPoints>
+                  <WorkToMake>96000</WorkToMake>
+                  <Mass>12</Mass>
+                  <Flammability>0</Flammability>
+                  <ArmorRating_Sharp>0.7</ArmorRating_Sharp>
+                  <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+                  <ArmorRating_Heat>0.75</ArmorRating_Heat>
+                  <StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+                  <StuffEffectMultiplierInsulation_Cold>0.5</StuffEffectMultiplierInsulation_Cold>
+                  <StuffEffectMultiplierInsulation_Heat>0.5</StuffEffectMultiplierInsulation_Heat>
+                  <Insulation_Cold>50</Insulation_Cold>
+                  <Insulation_Heat>36</Insulation_Heat>
+                  <PackRadius>2.5</PackRadius>
+                </statBases>
+                <apparel>
+                  <useWornGraphicMask>true</useWornGraphicMask>
+                  <developmentalStageFilter>Adult</developmentalStageFilter>
+                  <layers>
+                    <li>Shell</li>
+                  </layers>
+                  <bodyPartGroups>
+                    <li>Torso</li>
+                    <li>Legs</li>
+                    <li>Arms</li>
+                    <li>Neck</li>
+                    <li>Shoulders</li>
+                    <li>Feet</li>
+                    <li>Hands</li>
+                  </bodyPartGroups>
+                  <wornGraphicPath>Kiiro/Apparel/OnSkin/ShadowPowerArmor/ShadowPowerArmor</wornGraphicPath>
+                </apparel>
+                <equippedStatOffsets>
+                  <MentalBreakThreshold>-0.25</MentalBreakThreshold>
+                  <HuntingStealth>0.6</HuntingStealth>
+                  <PainShockThreshold>0.3</PainShockThreshold>
+                  <MeleeHitChance>12</MeleeHitChance>
+                  <MeleeDodgeChance>8</MeleeDodgeChance>
+                  <RangedCooldownFactor>-0.4</RangedCooldownFactor>
+                  <Ancot_RangeDodgeChance>0.1</Ancot_RangeDodgeChance>
+                  <IncomingDamageFactor>-0.15</IncomingDamageFactor>
+                  <CarryingCapacity>30</CarryingCapacity>
+                  <MoveSpeed>0.4</MoveSpeed>
+                  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.75</VacuumResistance>
+                </equippedStatOffsets>
+                <tickerType>Normal</tickerType>
+                <comps>
+                  <li Class="CompProperties_CauseHediff_Apparel">
+                    <hediff>Kiiro_FireRetardant</hediff>
+                    <part>Torso</part>
+                  </li>
+                </comps>
+                <comps>
+                  <li Class="CompProperties_ApparelReloadable">
+                    <maxCharges>5</maxCharges>
+                    <ammoDef>Chemfuel</ammoDef>
+                    <ammoCountToRefill>8</ammoCountToRefill>
+                    <baseReloadTicks>60</baseReloadTicks>
+                    <soundReload>Standard_Reload</soundReload>
+                    <hotKey>Misc4</hotKey>
+                    <chargeNoun>smoke pop</chargeNoun>
+                    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+                  </li>
+                </comps>
+                <verbs>
+                  <li>
+                    <verbClass>Verb_Smokepop</verbClass>
+                    <label>use</label>
+                    <violent>false</violent>
+                    <hasStandardCommand>true</hasStandardCommand>
+                    <targetable>false</targetable>
+                    <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+                    <onlyManualCast>True</onlyManualCast>
+                  </li>
+                </verbs>
+                <thingClass>Kiiro.Apparel_Stealth</thingClass>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Kiiro_HeavyPowerArmor"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="Kiiro_ShellBaseVI">
+                <defName>Kiiro_HeavyPowerArmor</defName>
+                <label>kiiro heavy power armor</label>
+                <description>The fully enclosed heavy power armor specialized in remote fire support greatly enhances the wearer's aiming ability with its built-in fire control computer.</description>
+                <costList>
+                  <Plasteel>50</Plasteel>
+                  <DevilstrandCloth>65</DevilstrandCloth>
+                  <ComponentIndustrial>8</ComponentIndustrial>
+                  <ComponentSpacer>3</ComponentSpacer>
+                </costList>
+                <costStuffCount>225</costStuffCount>
+                <stuffCategories>
+                  <li>Metallic</li>
+                </stuffCategories>
+                <graphicData>
+                  <texPath>Kiiro/Apparel/OnSkin/HeavyArmor/HeavyArmor</texPath>
+                </graphicData>
+                <statBases>
+                  <MaxHitPoints>1500</MaxHitPoints>
+                  <WorkToMake>108000</WorkToMake>
+                  <Mass>15</Mass>
+                  <Flammability>0</Flammability>
+                  <ArmorRating_Sharp>1.1</ArmorRating_Sharp>
+                  <ArmorRating_Blunt>1</ArmorRating_Blunt>
+                  <ArmorRating_Heat>0.95</ArmorRating_Heat>
+                  <StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+                  <StuffEffectMultiplierInsulation_Cold>0.5</StuffEffectMultiplierInsulation_Cold>
+                  <StuffEffectMultiplierInsulation_Heat>0.5</StuffEffectMultiplierInsulation_Heat>
+                  <Insulation_Cold>60</Insulation_Cold>
+                  <Insulation_Heat>42</Insulation_Heat>
+                  <Ancot_PhysicalShieldBlockChance_Melee>1.0</Ancot_PhysicalShieldBlockChance_Melee>
+                  <Ancot_PhysicalShieldBlockChance_Ranged>1.0</Ancot_PhysicalShieldBlockChance_Ranged>
+                  <Ancot_PhysicalShieldMaxStamina>75</Ancot_PhysicalShieldMaxStamina>
+                  <Ancot_PhysicalShieldBlockAngle>120</Ancot_PhysicalShieldBlockAngle>
+                  <Ancot_PhysicalShieldStaminaRecoverRate>3.0</Ancot_PhysicalShieldStaminaRecoverRate>
+                  <Ancot_PhysicalShieldStaminaRecoverRate_Holding>1.0</Ancot_PhysicalShieldStaminaRecoverRate_Holding>
+                  <Ancot_PhysicalShieldBreakStance>0.5</Ancot_PhysicalShieldBreakStance>
+                  <Ancot_PhysicalShieldResetTime>35</Ancot_PhysicalShieldResetTime>
+                  <Ancot_PhysicalShieldStaminaCost_Melee>4.0</Ancot_PhysicalShieldStaminaCost_Melee>
+                  <Ancot_PhysicalShieldStaminaCost_Ranged>1.5</Ancot_PhysicalShieldStaminaCost_Ranged>
+                  <Ancot_PhysicalShieldStaminaCostThershold>0.5</Ancot_PhysicalShieldStaminaCostThershold>
+                  <Ancot_PhysicalShieldStuffEffectMultiplier>0</Ancot_PhysicalShieldStuffEffectMultiplier>
+                </statBases>
+                <apparel>
+                  <useWornGraphicMask>true</useWornGraphicMask>
+                  <developmentalStageFilter>Adult</developmentalStageFilter>
+                  <bodyPartGroups>
+                    <li>Torso</li>
+                    <li>Legs</li>
+                    <li>Arms</li>
+                    <li>Neck</li>
+                    <li>Shoulders</li>
+                    <li>Feet</li>
+                    <li>Hands</li>
+                  </bodyPartGroups>
+                  <wornGraphicPath>Kiiro/Apparel/OnSkin/HeavyArmor/HeavyArmor</wornGraphicPath>
+                  <layers>
+                    <li>Shell</li>
+                  </layers>
+                  <shellRenderedBehindHead>true</shellRenderedBehindHead>
+                </apparel>
+                <tickerType>Normal</tickerType>
+                <comps>
+                  <li Class="CompProperties_CauseHediff_Apparel">
+                    <hediff>Kiiro_FireRetardant</hediff>
+                    <part>Torso</part>
+                  </li>
+                </comps>
+                <equippedStatOffsets>
+                  <MentalBreakThreshold>-0.25</MentalBreakThreshold>
+                  <PainShockThreshold>0.3</PainShockThreshold>
+                  <RangedCooldownFactor>-0.5</RangedCooldownFactor>
+                  <IncomingDamageFactor>-0.2</IncomingDamageFactor>
+                  <CarryingCapacity>30</CarryingCapacity>
+                  <MoveSpeed>-0.3</MoveSpeed>
+                  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.75</VacuumResistance>
+                </equippedStatOffsets>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/HediffDef[defName="HoldShield_HeavyArmor"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <HediffDef>
+                <defName>HoldShield_HeavyArmor</defName>
+                <label>holding shield</label>
+                <hediffClass>HediffWithComps</hediffClass>
+                <isBad>false</isBad>
+                <maxSeverity>1</maxSeverity>
+                <initialSeverity>1</initialSeverity>
+                <everCurableByItem>false</everCurableByItem>
+                <defaultLabelColor>(240, 240, 0)</defaultLabelColor>
+                <description>this pawn is holding a shield.</description>
+                <comps>
+                  <li Class="HediffCompProperties_DisappearsOnDeath" />
+                </comps>
+                <stages>
+                  <li>
+                    <capMods>
+				</capMods>
+                    <statFactors>
+                      <MoveSpeed>0.3</MoveSpeed>
+                      <ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
+                      <AimingDelayFactor>-0.15</AimingDelayFactor>
+                    </statFactors>
+                  </li>
+                </stages>
+                <renderNodeProperties>
+                  <li>
+                    <debugLabel>Milian_ArtemisArmorII_Shield</debugLabel>
+                    <nodeClass>PawnRenderNode</nodeClass>
+                    <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                    <texPath>Kiiro/Apparel/OnSkin/HeavyArmor/ArtemisArmorIIShield</texPath>
+                    <shaderTypeDef>MoteGlow</shaderTypeDef>
+                    <overrideMeshSize>(1.5,1.5)</overrideMeshSize>
+                    <color>(1,1,1,0.7)</color>
+                    <parentTagDef>Root</parentTagDef>
+                    <pawnType>Any</pawnType>
+                    <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                    <baseLayer>75</baseLayer>
+                    <drawData>
+                      <defaultData>
+                        <layer>100</layer>
+                      </defaultData>
+                      <dataNorth>
+                        <layer>-20</layer>
+                      </dataNorth>
+                    </drawData>
+                  </li>
+                </renderNodeProperties>
+              </HediffDef>
+            </value>
+          </nomatch>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

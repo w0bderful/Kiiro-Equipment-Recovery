@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods><li>Kiiro Equipment Expansion</li></mods>
+    <match Class="PatchOperationConditional">
+      <!-- Vanilla appends unlocked item labels to techprint descriptions.
+           Repair only the known upstream typo; preserve fixed/custom labels. -->
+      <xpath>Defs/ThingDef[defName="Kiiro_ULWeapon_SniperRifle"]/label[text()="kiiro ultra sniper rifle "]</xpath>
+      <match Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="Kiiro_ULWeapon_SniperRifle"]/label[text()="kiiro ultra sniper rifle "]</xpath>
+        <value><label>kiiro ultra sniper rifle</label></value>
+      </match>
+    </match>
+  </Operation>
+</Patch>

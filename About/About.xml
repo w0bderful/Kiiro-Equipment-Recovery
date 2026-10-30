@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ModMetaData>
+  <name>Kiiro Equipment Recovery Fix</name>
+  <author>w0bderful</author>
+  <packageId>w0bderful.kiiroequipmentrecovery</packageId>
+  <modVersion>1.0.1</modVersion>
+  <supportedVersions>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>NoFlag.Kiiroexpansion</packageId>
+      <displayName>Kiiro Equipment Expansion</displayName>
+      <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3741356350</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>NoFlag.Kiiroexpansion</li>
+  </loadAfter>
+  <loadBefore>
+    <li>Aruminon.KiiroEquipmentExpansion.CEPatch</li>
+  </loadBefore>
+  <description>Restores missing body armor definitions from Kiiro Equipment Expansion: ranger exoskeleton, shadow exoskeleton, power armor, shadow power armor, and heavy power armor, together with their missing abstract parents and heavy-armor shield hediff.
+
+Each restored armor definition has its own existence check. Only missing armor definitions are added; existing armor values are never replaced.
+
+Also corrects the known trailing space in the original ultra sniper rifle's English label. Vanilla copies this label into the ultra-weapon techprint's research reward list, causing a harmless description whitespace error. The label correction only applies to the exact original typo; already-corrected or custom labels are preserved.
+
+Load after Kiiro Equipment Expansion and before Kiiro Equipment Expansion CE Patch. CE is optional: when enabled, the existing CE patch supplies armor, material scaling, and carrying values. This repair does not introduce its own CE balance changes.
+
+This is a standalone XML patch with no runtime DLL. It does not edit Workshop files. Original textures are provided by the required mod. Recovered definitions come from a local October 28, 2026 backup of NoFlag's Kiiro Equipment Expansion. It cannot restore items already lost from a save.</description>
+</ModMetaData>
